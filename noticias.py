@@ -1,5 +1,5 @@
 '''
-Python: 2
+Python: 3
 Programa: Crawler
 '''
 
