@@ -1,0 +1,56 @@
+# Algoritmo de substituicao simples e direto
+
+# Importacao
+from colorama import Fore
+
+class cifra:
+
+    def __init__(self, valor=None):
+
+        self.valor = valor
+        self.mensagem_cripto = []
+
+        self.alfabeto = ["a", "b", "c", "d", "e", "f",
+                         "g", "h", "i", "j", "k", "l",
+                         "m", "n", "o", "p", "q", "r",
+                         "s", "t", "u", "v", "w", "x",
+                         "y", "z"]
+
+    def __str__(self):
+        return "{F}Cifra Substituicao"
+
+
+    def criptografar(self):
+
+        self.mensagem_cripto = []
+        listagem_letra = list(self.valor)
+
+        for i in listagem_letra:
+            self.mensagem_cripto.append(self.alfabeto.index(i))
+
+        print(f"{Fore.LIGHTBLUE_EX}# Mensagem original: {self.valor}")
+
+        print(f"{Fore.LIGHTRED_EX}# Mensagem criptografada: ", end="")
+        for i in self.mensagem_cripto:
+
+            if i >= 23:
+                print(self.alfabeto[i - 23], end="")
+
+            else:
+                print(self.alfabeto[i + 3], end="")
+
+
+        print(f"{Fore.RESET}")
+
+
+def main():
+
+    try:
+        sub = cifra("exemplozzzzz")
+        sub.criptografar()
+
+    except Exception as e:
+        print(f"Passagem de parametro a classe invalida! -> {e}")
+
+if __name__ == '__main__':
+    main()
